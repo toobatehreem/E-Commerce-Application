@@ -1,0 +1,40 @@
+{% extends 'App/base.html' %}
+
+{% block body %}
+<style>
+    table, th, td ,tr{
+      border:1px solid black;
+    }
+</style>
+    
+{% if orders %}
+<div class="container py-4">    
+<h5>All Orders</h5>
+{% if order_items %}
+
+<table>
+    <tr>
+      <th>Orders</th>
+      <th>Customer_name</th>
+      <th>Product_name</th>
+      <th>Quantity</th>
+      <th>Completed</th>
+    </tr>
+    {% for i in order_items %}
+    <tr>
+      {% comment %} <td>{{i.order_id.order_id}}</td> {% endcomment %}
+      <td>{{forloop.counter}}</td>
+      <td>{{i.order_id.user_id}}</td>
+      <td>{{i.product_id}}</td>
+      <td>{{i.quantity}}</td>
+      <td>{{i.order_id.completed}}</td>
+    </tr><br>
+    {% endfor %}
+  </table>
+</div>
+
+{% endif %}
+{% endif %}
+{% endblock body %}
+
+

@@ -1,0 +1,37 @@
+{% extends 'App/base.html' %}
+{% block body %}
+{% load cart %}
+{% load custom_filter %}
+
+<div class="container-fluid mt-3">
+	<div class="row">
+		{% if paths %}
+		{% if kurtis %}
+
+		<div id='products' class="col-lg-9 mx-auto">
+			<div class="row mx-auto">
+				{% for product in kurtis %}
+				<div class="card mx-auto mb-3" style="width: 18rem;">
+					<img class="card-img-top" src="{{paths}}/{{product.product_image}}" alt="Card image cap" style="width:80%; height:300px;">
+					<div class="card-body">
+						<h5 class="card-title">{{product.product_name}}</h5>
+						<p class="card-text">Price <em><b>{{product.price}}</b></em></p>
+						<form action="{{Kurti}}" method="POST" class="btn-block">
+							{% csrf_token %}
+							<input hidden type="text" name='product' value='{{product.product_id}}'>
+							<input type="submit" class="float-right btn btn-dark  form-control"
+								value="Add To Cart">
+						
+						</form>
+					</div>
+
+				</div>
+				{% endfor %}
+				{% endif %}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock body %}

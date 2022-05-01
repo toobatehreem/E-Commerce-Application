@@ -1,0 +1,16 @@
+{% extends 'App/base.html' %}
+
+{% block body %}
+
+{% if product_categories %}
+<div class="container py-3">
+<ul>
+{% for categories in product_categories%}
+<li><a href={{categories}}>{{categories}}</a></li>
+{% endfor %}
+
+</ul>
+</div>
+{% endif %}
+
+{% endblock body %}

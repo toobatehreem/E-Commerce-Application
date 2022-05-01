@@ -1,0 +1,26 @@
+{% extends 'App/base.html' %}
+
+{% block body %}
+<div class="container py-4">
+<form action="/add_products", method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+    <label for="name">Product name:</label>
+    <input type="text" name="name"><br>
+
+    <label for="image">Select image:</label>
+    <input type="file" name="image" accept="image/*"><br>
+
+    <label for="type">Product Type</label><br>
+    <input type="radio" name="types" value="Kurti">
+    <label for="Kurti">Kurti</label><br>
+    <input type="radio"name="types" value="Trousers">
+    <label for="Trousers">Trousers</label><br>
+
+    <label for="price">Price</label>
+    <input type="text" name="price"><br><br>
+    <input type="submit" class="btn btn-dark value="Submit"">
+  </form> 
+</div>
+{% endblock body %}
+
+
